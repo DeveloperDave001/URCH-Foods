@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — URCH Foods</title>
+  <meta name="robots" content="noindex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body class="admin-body">
+
+  <!-- ── ADMIN HEADER ── -->
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <a href="index.html" class="admin-logo">urch<span>foods</span><em>Admin</em></a>
+      <div class="admin-header-actions">
+        <a href="shop.html" class="admin-btn admin-btn-ghost">View Store</a>
+        <a href="index.html" class="admin-btn">Back to Site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main container">
+
+    <!-- ── TABS ── -->
+    <div class="admin-tabs" role="tablist" aria-label="Admin sections">
+      <button class="admin-tab active" data-tab="dashboard" role="tab">Dashboard</button>
+      <button class="admin-tab" data-tab="products" role="tab">Products</button>
+      <button class="admin-tab" data-tab="sales" role="tab">Sales</button>
+      <button class="admin-tab" data-tab="activity" role="tab">Activity</button>
+      <button class="admin-tab" data-tab="distributors" role="tab">Distributors</button>
+      <button class="admin-tab" data-tab="reviews" role="tab">Reviews</button>
+    </div>
+
+    <!-- ── DASHBOARD ── -->
+    <section class="admin-panel" id="panel-dashboard" role="tabpanel">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Revenue</div>
+          <div class="stat-value" id="statRevenue">&#8358;0</div>
+          <div class="stat-sub" id="statRevenueSub">from logged sales</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Items Sold</div>
+          <div class="stat-value" id="statItemsSold">0</div>
+          <div class="stat-sub" id="statOrdersSub">0 sale records</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Live Products</div>
+          <div class="stat-value" id="statProducts">0</div>
+          <div class="stat-sub">published to the store</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Add-to-Carts</div>
+          <div class="stat-value" id="statAddToCarts">0</div>
+          <div class="stat-sub" id="statCheckoutSub">0 checkouts started</div>
+        </div>
+      </div>
+
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h3>Top Selling Products</h3>
+          <p class="dash-hint">Ranked by units sold</p>
+          <div id="topSold" class="bar-list"></div>
+        </div>
+        <div class="dash-card">
+          <h3>Top Revenue Products</h3>
+          <p class="dash-hint">Ranked by naira earned</p>
+          <div id="topRevenue" class="bar-list"></div>
+        </div>
+      </div>
+
+      <div class="dash-grid dash-grid-2">
+        <div class="dash-card">
+          <h3>Recent Sales</h3>
+          <div id="recentSales" class="recent-list"></div>
+        </div>
+        <div class="dash-card">
+          <h3>Record a Sale</h3>
+          <p class="dash-hint">Log a completed order that was closed over WhatsApp.</p>
+          <form id="quickSaleForm" class="admin-form">
+            <label>Product <select id="quickProduct" required></select></label>
+            <label>Quantity <input type="number" id="quickQty" min="1" value="1" required /></label>
+            <button type="submit" class="admin-btn">Log Sale</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PRODUCTS ── -->
+    <section class="admin-panel" id="panel-products" role="tabpanel" hidden>
+      <div class="panel-toolbar">
+        <h3>Manage Products</h3>
+        <div class="toolbar-actions">
+          <button class="admin-btn" id="btnAddProduct">+ Add Product</button>
+          <button class="admin-btn admin-btn-ghost" id="btnResetProducts">Reset to Defaults</button>
+        </div>
+      </div>
+
+      <div class="product-form-wrap" id="productFormWrap" hidden>
+        <form id="productForm" class="admin-form product-form">
+          <h4 id="productFormTitle">Add Product</h4>
+          <div class="form-grid">
+            <label class="span-2">Product Name
+              <input type="text" id="pfName" required placeholder="e.g. Ogbono Soup Mix" />
+            </label>
+            <label>Price (&#8358;)
+              <input type="number" id="pfPrice" min="0" step="0.01" required placeholder="2500" />
+            </label>
+            <label>Unit
+              <input type="text" id="pfUnit" list="unitOptions" value="pack" />
+            </label>
+            <datalist id="unitOptions">
+              <option value="pack"></option>
+              <option value="bottle"></option>
+              <option value="jar"></option>
+              <option value="kg"></option>
+              <option value="piece"></option>
+            </datalist>
+            <label>Badge / Tag
+              <input type="text" id="pfTag" placeholder="e.g. Flagship, New, Best Seller" />
+            </label>
+            <div class="category-field span-2">
+              <span class="field-label">Categories</span>
+              <div class="category-checks">
+                <label><input type="checkbox" value="flagship" class="pfCat" /> Flagship</label>
+                <label><input type="checkbox" value="flour" class="pfCat" /> Flours</label>
+                <label><input type="checkbox" value="traditional" class="pfCat" /> Traditional</label>
+                <label><input type="checkbox" value="essentials" class="pfCat" /> Essentials</label>
+              </div>
+            </div>
+            <label class="span-2">Description
+              <textarea id="pfDesc" rows="3" placeholder="Short description shown on the product card."></textarea>
+            </label>
+            <label class="span-2">Product Image
+              <input type="file" id="pfImage" accept="image/*" />
+              <span class="field-hint">Images are compressed automatically to keep the site fast.</span>
+              <div class="image-preview" id="pfImagePreview"></div>
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="admin-btn">Save Product</button>
+            <button type="button" class="admin-btn admin-btn-ghost" id="btnCancelProduct">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="table-wrap">
+        <table class="admin-table" id="productsTable">
+          <thead>
+            <tr><th>Product</th><th>Price</th><th>Categories</th><th>Badge</th><th>Actions</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── SALES ── -->
+    <section class="admin-panel" id="panel-sales" role="tabpanel" hidden>
+      <div class="panel-toolbar">
+        <h3>Sales Log</h3>
+        <div class="toolbar-actions">
+          <button class="admin-btn" id="btnExportCsv">Export CSV</button>
+          <button class="admin-btn admin-btn-ghost" id="btnClearSales">Clear Log</button>
+        </div>
+      </div>
+
+      <div class="sales-layout">
+        <form id="saleForm" class="admin-form sale-form">
+          <h4>Record a Completed Sale</h4>
+          <label>Product <select id="saleProduct" required></select></label>
+          <label>Quantity <input type="number" id="saleQty" min="1" value="1" required /></label>
+          <div class="sale-total" id="saleTotalPreview"></div>
+          <label>Note <input type="text" id="saleNote" placeholder="Optional, e.g. customer name" /></label>
+          <button type="submit" class="admin-btn">Log Sale</button>
+        </form>
+        <div class="table-wrap">
+          <table class="admin-table" id="salesTable">
+            <thead>
+              <tr><th>Date</th><th>Product</th><th>Qty</th><th>Total</th><th>Note</th><th></th></tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ACTIVITY ── -->
+    <section class="admin-panel" id="panel-activity" role="tabpanel" hidden>
+      <div class="panel-toolbar">
+        <h3>Website Activity</h3>
+        <div class="toolbar-actions">
+          <button class="admin-btn admin-btn-ghost" id="btnClearActivity">Clear Activity</button>
+        </div>
+      </div>
+      <p class="dash-hint">Automatically recorded from visitors browsing the store — product views, add-to-carts, and checkouts started.</p>
+      <div class="activity-summary">
+        <div class="activity-stat"><span>Product views</span><strong id="actViews">0</strong></div>
+        <div class="activity-stat"><span>Add to carts</span><strong id="actAdds">0</strong></div>
+        <div class="activity-stat"><span>Checkouts started</span><strong id="actCheckouts">0</strong></div>
+      </div>
+      <div class="table-wrap">
+        <table class="admin-table" id="activityTable">
+          <thead>
+            <tr><th>Time</th><th>Event</th><th>Detail</th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── DISTRIBUTORS ── -->
+    <section class="admin-panel" id="panel-distributors" role="tabpanel" hidden>
+      <div class="panel-toolbar">
+        <h3>Distributor Applications</h3>
+        <div class="toolbar-actions">
+          <button class="admin-btn" id="btnDistExport">Export CSV</button>
+          <button class="admin-btn admin-btn-ghost" id="btnDistClear">Clear All</button>
+        </div>
+      </div>
+      <p class="dash-hint">Submitted from the "Become a Distributor" page. Review each application and update its status below.</p>
+      <div class="dist-admin-summary" id="distSummary"></div>
+      <div class="dist-admin-grid" id="distributorList"></div>
+    </section>
+
+    <!-- ── REVIEWS ── -->
+    <section class="admin-panel" id="panel-reviews" role="tabpanel" hidden>
+      <div class="panel-toolbar">
+        <h3>Product Reviews</h3>
+        <div class="toolbar-actions">
+          <button class="admin-btn" id="btnReviewExport">Export CSV</button>
+          <button class="admin-btn admin-btn-ghost" id="btnReviewClear">Clear All</button>
+        </div>
+      </div>
+      <p class="dash-hint">Honest feedback from customers who bought and received products — complaints, change requests, and more.</p>
+      <div class="dist-admin-summary" id="reviewSummary"></div>
+
+      <div class="review-filter-bar">
+        <label class="review-filter-field">
+          <span>Product</span>
+          <select id="reviewProductFilter"></select>
+        </label>
+        <label class="review-filter-field">
+          <span>Rating</span>
+          <select id="reviewRatingFilter"></select>
+        </label>
+        <button type="button" class="admin-btn admin-btn-ghost admin-btn-sm" id="reviewFilterReset">Reset filters</button>
+        <span class="review-filter-count" id="reviewFilterCount"></span>
+      </div>
+      <div class="dist-admin-grid" id="reviewsList"></div>
+
+      <!-- ── REVIEW INSIGHTS ── -->
+      <div class="review-analytics">
+        <div class="panel-toolbar">
+          <h3>Product Insights</h3>
+          <span class="dash-hint" style="margin:0;">Ranked to guide decisions — not just raw reviews.</span>
+        </div>
+        <div class="review-callouts" id="reviewCallouts"></div>
+        <div class="table-wrap">
+          <table class="admin-table review-stats-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Product</th>
+                <th>Reviews</th>
+                <th>Avg rating</th>
+                <th>5&ndash;star</th>
+                <th>Complaints</th>
+                <th>Change requests</th>
+              </tr>
+            </thead>
+            <tbody id="reviewStatsBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="admin-footer">
+    <div class="container">
+      <span>URCH Foods Admin — data is stored in this browser (localStorage).</span>
+      <a href="index.html">View site &rarr;</a>
+    </div>
+  </footer>
+
+  <div class="admin-toast" id="adminToast"></div>
+
+  <script type="application/json" id="adminDefaults">
+  [
+    { "id": "okpa", "name": "Okpa Flour", "price": 2500, "unit": "pack", "categories": ["flagship", "flour"], "tag": "Flagship", "desc": "Premium instant Okpa mix \u2014 the beloved Igbo delicacy made easy. Rich, authentic flavour with every bite.", "img": "images/Products/OkpaFlower.png" },
+    { "id": "abacha", "name": "Abacha (African Salad)", "price": 2000, "unit": "pack", "categories": ["flagship", "traditional"], "tag": "Flagship", "desc": "Authentic dried shredded cassava for the classic African Salad. Premium quality, clean, and ready to prepare.", "img": "images/product-02.jpg" },
+    { "id": "achicha", "name": "Achicha", "price": 1800, "unit": "pack", "categories": ["flagship", "traditional"], "tag": "Flagship", "desc": "Traditional dried cocoyam \u2014 a cherished staple from Nsukka. Perfectly processed to preserve authentic taste.", "img": "images/Products/Achicha.png" },
+    { "id": "akpu", "name": "Akpu Flour (Fufu Flour)", "price": 2200, "unit": "pack", "categories": ["flour"], "tag": "", "desc": "Smooth, stretchy instant fufu flour \u2014 perfect for pairing with Egusi, Oha, or any soup of your choice.", "img": "images/product-01.jpg" },
+    { "id": "agbugbu", "name": "Agbugbu (Fio-Fio)", "price": 1600, "unit": "pack", "categories": ["traditional"], "tag": "", "desc": "Whole pigeon peas \u2014 a protein-rich Igbo staple. Great for soups, porridges, and traditional dishes.", "img": "images/Products/Agbugbu.png" },
+    { "id": "akidi", "name": "Akidi Oji", "price": 1500, "unit": "pack", "categories": ["traditional"], "tag": "", "desc": "Premium black-eyed cowpeas \u2014 versatile, nutritious, and essential for authentic Igbo soups and stews.", "img": "images/Products/AkidiOji.png" },
+    { "id": "palm-oil", "name": "Palm Oil", "price": 3000, "unit": "bottle", "categories": ["essentials"], "tag": "", "desc": "Pure, unrefined Nigerian palm oil \u2014 rich in flavour and colour. The essential base for every traditional dish.", "img": "images/product-01.jpg" },
+    { "id": "okpeye", "name": "Okp\u00e9ye Nsukka", "price": 1200, "unit": "pack", "categories": ["essentials", "traditional"], "tag": "", "desc": "Authentic Nsukka seasoning \u2014 the secret behind the rich, earthy depth of traditional Igbo soups and stews.", "img": "images/product-02.jpg" }
+  ]
+  </script>
+
+  <script src="admin.js"></script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipes — URCH Foods</title>
+  <meta name="description" content="Discover authentic Nigerian recipes using URCH Foods products. From classic Okpa pudding to Abacha salads and Achicha soups — cook the taste of home." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
+</head>
+<body>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="why-urch.html">Why URCH</a>
+    <a href="faq.html">FAQ</a>
+    <a href="distributors.html">Become a Distributor</a>
+    <a href="shop.html" class="mobile-cta btn-primary">Shop Now</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">urch<span>foods</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="recipes.html" class="active">Recipes</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="why-urch.html">Why URCH</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="distributors.html" class="nav-distributor">Become a Distributor</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" class="nav-signin" aria-label="Sign in to your account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <a href="shop.html" class="nav-cart" id="cartIcon" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <div class="cart-count" id="cartCount" style="display:none">0</div>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        Your Cart
+        <span class="cart-drawer-badge" id="cartDrawerBadge">0</span>
+      </div>
+      <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-empty" id="cartDrawerEmpty">
+      <p>Your cart is empty.</p>
+      <a href="shop.html" class="btn-start-shopping">Start Shopping</a>
+    </div>
+
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-drawer-summary">
+        <div class="cart-drawer-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&#8358;0</span>
+        </div>
+        <p class="cart-drawer-note">Shipping &amp; delivery calculated at checkout.</p>
+      </div>
+      <button type="button" class="cart-drawer-checkout" id="cartCheckout" disabled>
+        <span>Checkout</span>
+        <span class="cart-drawer-checkout-total" id="cartCheckoutTotal">&#8358;0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── RECIPES BANNER ── -->
+  <section class="recipes-banner">
+    <div class="container">
+      <div class="section-label reveal">Recipes</div>
+      <h1 class="section-title reveal reveal-delay-1">Cook <em>inspiration</em><br>into every meal</h1>
+      <p class="section-sub reveal reveal-delay-2">From classic Okpa pudding to refreshing Abacha salads — discover recipes that make cooking indigenous foods easy and joyful.</p>
+    </div>
+  </section>
+
+  <!-- ── FEATURED RECIPE ── -->
+  <section class="featured-recipe">
+    <div class="container">
+      <div class="featured-recipe-card reveal">
+        <div class="featured-recipe-img">
+          <div class="featured-recipe-badge">Featured Recipe</div>
+          <div class="featured-recipe-img-placeholder"><img src="images/product-01.jpg" alt="Classic Okpa Pudding" /></div>
+        </div>
+        <div class="featured-recipe-body">
+          <div class="featured-recipe-tag">Okpa Flour Recipe</div>
+          <h2 class="featured-recipe-title">Classic <em>Okpa Pudding</em><br>with Banana Leaves</h2>
+          <p class="featured-recipe-desc">The timeless Igbo delicacy — rich, savoury, and wrapped in banana leaves. This is the recipe that brings families together, and our Okpa Flour makes it effortless. Just add water, season, and steam to perfection.</p>
+          <div class="featured-recipe-meta">
+            <div class="recipe-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              45 mins
+            </div>
+            <div class="recipe-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              Serves 4-6
+            </div>
+            <div class="recipe-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+              Easy
+            </div>
+          </div>
+          <div class="featured-recipe-actions">
+            <a href="shop.html" class="btn-recipe-primary">
+              Shop Okpa Flour
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="btn-recipe-outline">
+              View Full Recipe
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FILTER BAR ── -->
+  <div class="recipes-controls">
+    <div class="container">
+      <div class="recipes-controls-inner">
+        <div class="recipe-filters">
+          <button class="filter-btn active" data-filter="all">All Recipes</button>
+          <button class="filter-btn" data-filter="okpa">Okpa Flour</button>
+          <button class="filter-btn" data-filter="abacha">Abacha</button>
+          <button class="filter-btn" data-filter="achicha">Achicha</button>
+          <button class="filter-btn" data-filter="akpu">Akpu / Fufu</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+        <span class="shop-result-count" id="recipeCount">12 recipes</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RECIPE GRID ── -->
+  <section class="recipes-catalogue">
+    <div class="container">
+      <div class="recipes-catalogue-grid" id="recipeGrid">
+
+        <!-- 1. Abacha (African Salad) — Large -->
+        <div class="recipe-card-lg reveal" data-product="abacha">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Abacha — African Salad" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Abacha</span><span class="recipe-product-tag">Palm Oil</span></div>
+            <h3 class="recipe-name">Abacha — The Classic African Salad</h3>
+            <p class="recipe-desc">The beloved Igbo salad — colourful, tangy, and full of flavour. Shredded cassava tossed with palm oil, potash, utazi leaves, and your favourite toppings. Perfect for parties and everyday enjoyment.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:20px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                30 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 2. Ugba & Abacha -->
+        <div class="recipe-card reveal" data-product="abacha">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-02.jpg" alt="Ugba & Abacha" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Abacha</span></div>
+            <h3 class="recipe-name">Ugba &amp; Abacha Mix</h3>
+            <p class="recipe-desc">A richer variation combining oil bean seed (Ugba) with Abacha for a protein-packed, deeply satisfying dish.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                35 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 3. Achicha & Ugba Soup -->
+        <div class="recipe-card reveal" data-product="achicha">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-03.jpg" alt="Achicha & Ugba Soup" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Achicha</span></div>
+            <h3 class="recipe-name">Achicha &amp; Ugba Soup</h3>
+            <p class="recipe-desc">A hearty Nsukka classic — dried cocoyam paired with oil bean seed in a rich, traditional soup. Comfort in a bowl.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                60 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Medium
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Akpu & Egusi Soup — Large -->
+        <div class="recipe-card-lg reveal" data-product="akpu">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Akpu & Egusi Soup" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Akpu Flour</span><span class="recipe-product-tag">Palm Oil</span></div>
+            <h3 class="recipe-name">Smooth Akpu &amp; Rich Egusi Soup</h3>
+            <p class="recipe-desc">The ultimate Nigerian comfort food combo — smooth, stretchy fufu paired with rich, melon-seed egusi soup loaded with stockfish, spinach, and palm oil. Made effortless with our Akpu Flour.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:20px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                50 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                Serves 4
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 5. Akpu & Oha Soup -->
+        <div class="recipe-card reveal" data-product="akpu">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-02.jpg" alt="Akpu & Oha Soup" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Akpu Flour</span></div>
+            <h3 class="recipe-name">Akpu &amp; Oha Soup</h3>
+            <p class="recipe-desc">The regal Oha soup — fragrant, leafy, and deeply traditional. Paired with smooth Akpu for a truly Igbo experience.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                55 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Medium
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 6. Okpa & Pepper Sauce -->
+        <div class="recipe-card reveal" data-product="okpa">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-03.jpg" alt="Okpa with Pepper Sauce" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Okpa Flour</span></div>
+            <h3 class="recipe-name">Okpa with Pepper Sauce</h3>
+            <p class="recipe-desc">Steamed Okpa pudding served with a fiery pepper sauce — the classic street-food combination that never gets old.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                40 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 7. Okpa & Garden Egg Sauce -->
+        <div class="recipe-card reveal" data-product="okpa">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Okpa & Garden Egg Sauce" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Okpa Flour</span></div>
+            <h3 class="recipe-name">Okpa &amp; Garden Egg Sauce</h3>
+            <p class="recipe-desc">A lighter pairing — steamed Okpa with a fresh garden egg (aubergine) sauce. Nutritious, delicious, and authentically Igbo.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                45 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 8. Achicha with Bitter Leaf -->
+        <div class="recipe-card reveal" data-product="achicha">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-02.jpg" alt="Achicha with Bitter Leaf" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Achicha</span></div>
+            <h3 class="recipe-name">Achicha with Bitter Leaf Soup</h3>
+            <p class="recipe-desc">Dried cocoyam simmered in a bold bitter leaf soup — a dish that's both an acquired taste and a lifelong love for those who know.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                65 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Medium
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 9. Akidi & Plantain -->
+        <div class="recipe-card reveal" data-product="other">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-03.jpg" alt="Akidi & Plantain" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Akidi Oji</span></div>
+            <h3 class="recipe-name">Akidi Beans &amp; Fried Plantain</h3>
+            <p class="recipe-desc">A simple, hearty meal — creamy Akidi beans paired with golden fried plantain. A weeknight staple that's packed with protein.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                35 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 10. Agbugbu Porridge -->
+        <div class="recipe-card reveal" data-product="other">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Agbugbu Porridge" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Agbugbu</span></div>
+            <h3 class="recipe-name">Agbugbu (Fio-Fio) Porridge</h3>
+            <p class="recipe-desc">Protein-rich pigeon pea porridge — hearty, warming, and deeply satisfying. A one-pot wonder for busy weeknights.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                40 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 11. Palm Oil Stew -->
+        <div class="recipe-card reveal" data-product="other">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-02.jpg" alt="Palm Oil Stew" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Palm Oil</span></div>
+            <h3 class="recipe-name">Traditional Palm Oil Stew</h3>
+            <p class="recipe-desc">A rich, aromatic stew built on pure palm oil — the foundation of countless Nigerian dishes. Pair with any of our flours.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                45 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Easy
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 12. Okpéye Seasoning Sauce -->
+        <div class="recipe-card reveal" data-product="other">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-03.jpg" alt="Okpéye Seasoning Sauce" /></div>
+          </div>
+          <div class="recipe-body">
+            <div class="recipe-product-tags"><span class="recipe-product-tag">Okpéye Nsukka</span></div>
+            <h3 class="recipe-name">Okpéye-Seasoned Pepper Soup</h3>
+            <p class="recipe-desc">A bold, earthy pepper soup elevated with Okpéye Nsukka seasoning — the secret weapon of Nsukka kitchens. Deep, complex, unforgettable.</p>
+            <div class="featured-recipe-meta" style="margin-bottom:16px">
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                50 mins
+              </div>
+              <div class="recipe-meta-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                Medium
+              </div>
+            </div>
+            <a href="shop.html" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── YOUTUBE RECIPES ── -->
+  <section class="youtube-section">
+    <div class="container">
+      <div class="youtube-header">
+        <div class="section-label reveal">Watch &amp; Cook</div>
+        <h2 class="section-title reveal reveal-delay-1">Recipe videos <em>on YouTube</em></h2>
+        <p class="section-sub reveal reveal-delay-2">Follow along step-by-step with our video recipes. Subscribe to our channel for new recipes every week.</p>
+      </div>
+      <div class="youtube-grid">
+
+        <div class="youtube-card reveal">
+          <div class="youtube-card-thumb">
+            <div class="youtube-play-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="youtube-card-body">
+            <h3 class="youtube-card-title">How to Make Perfect Okpa Pudding</h3>
+            <p class="youtube-card-desc">Step-by-step guide to making the smoothest, most delicious Okpa every single time.</p>
+            <a href="#" class="btn-youtube" target="_blank" rel="noopener">
+              Watch on YouTube
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="youtube-card reveal reveal-delay-1">
+          <div class="youtube-card-thumb">
+            <div class="youtube-play-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="youtube-card-body">
+            <h3 class="youtube-card-title">Abacha — African Salad Masterclass</h3>
+            <p class="youtube-card-desc">Learn the authentic Abacha technique — from preparing the cassava to the perfect palm oil emulsion.</p>
+            <a href="#" class="btn-youtube" target="_blank" rel="noopener">
+              Watch on YouTube
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="youtube-card reveal reveal-delay-2">
+          <div class="youtube-card-thumb">
+            <div class="youtube-play-icon">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+          </div>
+          <div class="youtube-card-body">
+            <h3 class="youtube-card-title">Achicha &amp; Ugba Soup from Scratch</h3>
+            <p class="youtube-card-desc">The complete Nsukka classic — dried cocoyam and oil bean seed in a rich, traditional soup.</p>
+            <a href="#" class="btn-youtube" target="_blank" rel="noopener">
+              Watch on YouTube
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── NEWSLETTER CTA ── -->
+  <section class="recipes-cta">
+    <div class="container">
+      <div class="recipes-cta-inner reveal">
+        <div class="section-label">&#10024; Get Our Recipe Pack</div>
+        <h2 class="section-title">Free: Top 5 <em>Okpa &amp; Abacha</em> Recipes</h2>
+        <p class="section-sub">Join the URCH Foods community and get our exclusive recipe PDF — plus first access to new products, special offers, and weekly cooking inspiration.</p>
+        <form class="cta-form" id="newsletterForm" style="margin:28px auto 0;max-width:440px;">
+          <input type="email" class="cta-input" placeholder="Enter your email address" required style="background:var(--bg-alt);border-color:var(--border);color:var(--text-1);" />
+          <button type="submit" class="cta-submit">Send Me the Recipes</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">urch<span style="color:var(--accent-light)">foods</span></a>
+          <p class="footer-brand-desc">Nigeria's culinary heritage, made convenient without losing its soul. Premium indigenous foods for modern kitchens.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="YouTube">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Shop</div>
+          <div class="footer-links">
+            <a href="shop.html">All Products</a>
+            <a href="shop.html">Okpa Flour</a>
+            <a href="shop.html">Abacha</a>
+            <a href="shop.html">Achicha</a>
+            <a href="shop.html">Palm Oil</a>
+            <a href="shop.html">Gift Bundles</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Company</div>
+          <div class="footer-links">
+            <a href="our-story.html">Our Story</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="distributors.html">Become a Distributor</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Support</div>
+          <div class="footer-links">
+            <a href="faq.html">FAQ</a>
+            <a href="#">Track Order</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 URCH Foods. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Shipping Policy</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="urch-foods.js"></script>
+  <script>
+    /* ── Recipe Filter ── */
+    (function () {
+      var filterBtns = document.querySelectorAll('.filter-btn');
+      var grid = document.getElementById('recipeGrid');
+      var countEl = document.getElementById('recipeCount');
+      var cards = Array.from(grid.querySelectorAll('[data-product]'));
+
+      function getVisible() { return cards.filter(function (c) { return c.style.display !== 'none'; }); }
+      function updateCount() {
+        var n = getVisible().length;
+        countEl.textContent = n + ' recipe' + (n !== 1 ? 's' : '');
+      }
+
+      filterBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          var f = btn.getAttribute('data-filter');
+          cards.forEach(function (card) {
+            var p = card.getAttribute('data-product') || '';
+            card.style.display = (f === 'all' || p === f) ? '' : 'none';
+          });
+          updateCount();
+        });
+      });
+
+      updateCount();
+    })();
+  </script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

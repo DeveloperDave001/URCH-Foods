@@ -1,273 +1,634 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zoom Consults — Lagos</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <title>URCH Foods — Authentic Indigenous Nigerian Foods</title>
+  <meta name="description" content="Premium, hygienically processed indigenous Nigerian foods. Shop Okpa Flour, Abacha, Achicha, and more. Made in Nigeria, delivered to your door." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
 </head>
 <body>
 
-<!-- Mobile menu -->
-<div class="mob-menu" id="mobMenu">
-  <button class="mob-close" onclick="closeMob()">✕</button>
-  <a href="index.html" onclick="closeMob()">Home</a>
-  <a href="about.html" onclick="closeMob()">About</a>
-  <a href="services.html" onclick="closeMob()">Services</a>
-  <a href="portfolio.html" onclick="closeMob()">Portfolio</a>
-  <a href="contact.html" onclick="closeMob()">Contact</a>
-</div>
-
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="logo">
-    <div class="logo-dot"></div>ZOOM CONSULTS
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="portfolio.html">Portfolio</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <a href="contact.html" class="nav-btn">Get in touch</a>
-  <button class="burger" onclick="openMob()"><span></span><span></span><span></span></button>
-</nav>
-
-<!-- ── HERO ── -->
-<section id="hero">
-  <video class="hero-video" autoplay="autoplay" muted="muted" loop="loop" playsinline="playsinline" webkit-playsinline="true" poster="img/deco2.jpg">
-    <source src="interior.mp4" type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
-  <div class="hero-left">
-    <div class="hero-tag reveal">Lagos, Nigeria — Interior &amp; Glass Specialists</div>
-    <h1 class="hero-h1 reveal d1">
-      WE BUILD<br /><span class="acc">BETTER</span><br />SPACES.
-    </h1>
-    <p class="hero-sub reveal d2">Interior design, glass construction, and strategic partnerships—delivered with precision for homes and businesses across Nigeria.</p>
-    <div class="hero-actions reveal d3">
-      <a href="#contact" class="btn-red btn-red-full" onclick="go(event,'#contact')">
-        Contact Us Now
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
-    </div>
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="why-urch.html">Why URCH</a>
+    <a href="faq.html">FAQ</a>
+    <a href="distributors.html">Become a Distributor</a>
+    <a href="shop.html" class="mobile-cta btn-primary">Shop Now</a>
   </div>
-  <div class="hero-right reveal d2">
-    <img src="img/d3.jpg" alt="A beautifully designed interior space by Zoom Consults" />
-    <div class="hero-caption">Featured — Lagos Residence 2024</div>
-  </div>
-  <div class="hero-stats">
-    <div class="stat reveal">
-      <div class="stat-num">20<span>+</span></div>
-      <div class="stat-label">Years of delivery</div>
-    </div>
-    <div class="stat reveal d1">
-      <div class="stat-num">250<span>+</span></div>
-      <div class="stat-label">Projects completed</div>
-    </div>
-    <div class="stat reveal d2">
-      <div class="stat-num">120<span>+</span></div>
-      <div class="stat-label">Clients &amp; partners</div>
-    </div>
-    <div class="stat reveal d3">
-      <div class="stat-num">3<span>x</span></div>
-      <div class="stat-label">Service divisions</div>
-    </div>
-  </div>
-</section>
 
-<!-- ── ABOUT ── -->
-<section id="about">
-  <div class="about-text">
-    <div class="tag reveal">Who we are</div>
-    <h2 class="st light reveal d1">BUILT ON DETAIL &amp; DELIVERY.</h2>
-    <p class="reveal d2">We're a Lagos-based team of designers, builders, and strategists. From glass systems to full interiors, we plan, prototype, and deliver spaces that feel intentional—on time and on brief.</p>
-    <ul class="checklist reveal d3">
-      <li>Full-service interior design &amp; consultation</li>
-      <li>Structural glass &amp; custom glazing systems</li>
-      <li>End-to-end project management</li>
-      <li>Training academy for design professionals</li>
-      <li>Vendor &amp; artisan partner network</li>
-    </ul>
-  </div>
-  <div class="about-img reveal">
-    <img src="img/d4.jpg" alt="Zoom Consults team planning an interior design project" />
-  </div>
-</section>
-
-<!-- ── SERVICES ── -->
-<section id="services">
-  <div class="services-top">
-    <div>
-      <div class="tag reveal">What we do</div>
-      <h2 class="st reveal d1">OUR<br />SERVICES.</h2>
-    </div>
-    <p class="reveal d2">Three specialised divisions working together to deliver your project from concept to completion.</p>
-  </div>
-  <div class="services-grid">
-
-    <div class="s-card reveal">
-      <div class="s-img">
-        <img src="img/d5.jpg" alt="Zoom Glass — structural glazing and custom glass partition in a modern building" />
-        <div class="s-num">01</div>
-      </div>
-      <div class="s-body">
-        <div class="s-title">ZOOM GLASS</div>
-        <p class="s-text">Structural glazing, partitions, and custom glass installations. Engineered for safety, natural light, and clean architectural lines. Every panel placed with purpose.</p>
-        <a href="services.html" class="s-link">
-          Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="s-card reveal d1">
-      <div class="s-img">
-        <img src="img/d6.jpg" alt="Zoom Interior — completed living room interior design with furniture and lighting" />
-        <div class="s-num">02</div>
-      </div>
-      <div class="s-body">
-        <div class="s-title">ZOOM INTERIOR</div>
-        <p class="s-text">Full-service interior design and a training academy that turns your vision into build-ready plans. Measured, mood-led, and practical for every room and budget.</p>
-        <a href="services.html" class="s-link">
-          Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="s-card reveal d2">
-      <div class="s-img">
-        <img src="img/d7.jpg" alt="Zoom Partners Hub — a coordinated network of vendors, artisans, and project managers" />
-        <div class="s-num">03</div>
-      </div>
-      <div class="s-body">
-        <div class="s-title">ZOOM PARTNERS HUB</div>
-        <p class="s-text">A curated network of vendors, artisans, and project managers—coordinated so your build moves from plan to reality without friction or costly delays.</p>
-        <a href="services.html" class="s-link">
-          Learn more <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ── WORK GALLERY ── -->
-<section id="showcase">
-  <div class="showcase-header">
-    <div>
-      <div class="tag light reveal">Our work</div>
-      <h2 class="st light reveal d1">SPACES WE'VE<br />TRANSFORMED.</h2>
-    </div>
-    <p class="reveal d2">From residential interiors to commercial glass installations across Lagos and beyond.</p>
-  </div>
-  <div class="gallery-grid">
-    <div class="g-item tall reveal">
-      <img src="img/d8.jpg" alt="Luxury living room interior — Lagos Island residential project" />
-      <div class="g-label">Living Room — Lagos Island</div>
-      <div class="g-badge">Featured</div>
-    </div>
-    <div class="g-item reveal d1">
-      <img src="img/d9.jpg" alt="Floor-to-ceiling glass partition — Victoria Island office" />
-      <div class="g-label">Office Glazing — V.I.</div>
-    </div>
-    <div class="g-item reveal d2">
-      <img src="img/d10.jpg" alt="Modern kitchen interior fit-out — Lekki" />
-      <div class="g-label">Kitchen Design — Lekki</div>
-    </div>
-    <div class="g-item reveal d1">
-      <img src="img/d11.jpg" alt="Open plan dining and living area — Ikoyi" />
-      <div class="g-label">Open Plan — Ikoyi</div>
-    </div>
-    <div class="g-item reveal d2">
-      <img src="img/deco1.jpg" alt="Commercial retail interior fit-out — GRA" />
-      <div class="g-label">Retail Fit-out — GRA</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA BAND ── -->
-<div class="cta-band reveal">
-  <h2>READY TO BUILD<br />SOMETHING THAT<br />LASTS?</h2>
-  <a href="#contact" class="btn-white" onclick="go(event,'#contact')">
-    Start the conversation
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-  </a>
-</div>
-
-<!-- ── CONTACT ── -->
-<section id="contact">
-  <div class="contact-left">
-    <div class="tag reveal">Say hello</div>
-    <h2 class="st light reveal d1">LET'S<br />BUILD<br />TOGETHER.</h2>
-    <p class="reveal d2">Tell us about your project. We'll respond within two business days.</p>
-    <div class="info-list reveal d3">
-      <div class="info-item">
-        <div class="info-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </div>
-        <span>hello@zoomconsults.ng</span>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        </div>
-        <span>+234 801 234 5678</span>
-      </div>
-      <div class="info-item">
-        <div class="info-icon">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        </div>
-        <span>Lagos, Nigeria</span>
-      </div>
-    </div>
-  </div>
-  <div class="contact-right">
-    <form onsubmit="handleForm(event)">
-      <div class="form-row">
-        <div>
-          <label>Name</label>
-          <input type="text" name="name" placeholder="Your full name" required />
-        </div>
-        <div>
-          <label>Email</label>
-          <input type="email" name="email" placeholder="your@email.com" required />
-        </div>
-      </div>
-      <label>Phone</label>
-      <input type="tel" name="phone" placeholder="+234 ..." />
-      <label>Service of interest</label>
-      <select name="service">
-        <option value="" disabled selected>Select a service</option>
-        <option>Zoom Glass</option>
-        <option>Zoom Interior</option>
-        <option>Zoom Partners Hub</option>
-        <option>Multiple / Not sure yet</option>
-      </select>
-      <label>Project details</label>
-      <textarea name="message" rows="4" placeholder="Tell us about your space, timeline, and goals..." required></textarea>
-      <button type="submit" class="form-submit" id="submitBtn">
-        <span id="submitText">Send message</span>
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+  <!-- ── WELCOME POPUP (lead magnet — account creation) ── -->
+  <div class="welcome-overlay" id="welcomePopup" hidden role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="welcome-modal">
+      <button type="button" class="welcome-close" id="welcomeClose" aria-label="Close popup">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-    </form>
+      <div class="welcome-content">
+        <div class="welcome-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <span class="welcome-badge">Exclusive Offer</span>
+        <h2 class="welcome-heading">Get <em>10% off</em> your first order</h2>
+        <p class="welcome-sub">Create a free URCH Foods account to unlock member-only deals, track your orders, and get recipes delivered to your inbox.</p>
+        <a href="login.html" class="welcome-cta-btn">Create Your Free Account <span class="link-arrow">&rarr;</span></a>
+        <button type="button" class="welcome-dismiss" id="welcomeDismiss">No thanks</button>
+      </div>
+    </div>
   </div>
-</section>
 
-<!-- ── FOOTER ── -->
-<footer>
-  <span class="foot-logo">ZOOM CONSULTS</span>
-  <span class="foot-copy">© 2025 Zoom Consults. All rights reserved.</span>
-  <div class="foot-links">
-    <a href="#">Privacy</a>
-    <a href="#">Terms</a>
-    <a href="#">Instagram</a>
+  <!-- ── 1. NAV ── -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">urch<span>foods</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="why-urch.html">Why URCH</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="distributors.html" class="nav-distributor">Become a Distributor</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" class="nav-signin" aria-label="Sign in to your account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <a href="shop.html" class="nav-cart" id="cartIcon" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <div class="cart-count" id="cartCount" style="display:none">0</div>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        Your Cart
+        <span class="cart-drawer-badge" id="cartDrawerBadge">0</span>
+      </div>
+      <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-empty" id="cartDrawerEmpty">
+      <p>Your cart is empty.</p>
+      <a href="shop.html" class="btn-start-shopping">Start Shopping</a>
+    </div>
+
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-drawer-summary">
+        <div class="cart-drawer-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&#8358;0</span>
+        </div>
+        <p class="cart-drawer-note">Shipping &amp; delivery calculated at checkout.</p>
+      </div>
+      <button type="button" class="cart-drawer-checkout" id="cartCheckout" disabled>
+        <span>Checkout</span>
+        <span class="cart-drawer-checkout-total" id="cartCheckoutTotal">&#8358;0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── 2. HERO ── -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="hero-content">
+          <div class="hero-badge reveal">
+            <div class="hero-badge-dot">&#10024;</div>
+            <span>Premium <strong>Indigenous Nigerian Foods</strong></span>
+          </div>
+          <h1 class="hero-title reveal reveal-delay-1">
+            Nigeria's culinary heritage,<br><em>made convenient.</em>
+          </h1>
+          <p class="hero-sub reveal reveal-delay-2">
+            Authentic, hygienically processed Okpa Flour, Abacha, Achicha and more — preserving the dishes you love, made accessible for modern kitchens and the diaspora.
+          </p>
+          <div class="hero-actions reveal reveal-delay-3">
+            <a href="shop.html" class="btn-primary-lg">
+              Shop Our Products
+              <span class="btn-arrow">&rarr;</span>
+            </a>
+            <a href="#story" class="btn-outline-lg">
+              Read Our Story
+            </a>
+          </div>
+          <div class="hero-trust reveal reveal-delay-4">
+            <div class="trust-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              NAFDAC Certified
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2z"/></svg>
+              Made in Nigeria
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              Premium Quality
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="hero-showcase">
+            <div class="showcase-card">
+              <div class="showcase-img">
+                <div class="showcase-img-placeholder">
+                  <img src="images/Products/OkpaFlower.png" alt="Okpa Flour" />
+                </div>
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-name">Okpa Flour</div>
+                <div class="showcase-price">From &#8358;2,500</div>
+              </div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-img">
+                <div class="showcase-img-placeholder">
+                  <img src="images/product-02.jpg" alt="Abacha" />
+                </div>
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-name">Abacha</div>
+                <div class="showcase-price">From &#8358;2,000</div>
+              </div>
+            </div>
+            <div class="showcase-card">
+              <div class="showcase-img">
+                <div class="showcase-img-placeholder">
+                  <img src="images/Products/Achicha.png" alt="Achicha" />
+                </div>
+              </div>
+              <div class="showcase-info">
+                <div class="showcase-name">Achicha</div>
+                <div class="showcase-price">From &#8358;1,800</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 3. TRUST STRIP ── -->
+  <div class="trust-strip">
+    <div class="trust-strip-label">Trusted by thousands of families across Nigeria and the diaspora</div>
+    <div class="trust-strip-track-wrap">
+      <div class="trust-strip-track">
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>Lagos</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>Abuja</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><polygon points="12,2 22,20 2,20"/></svg></div>Enugu</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M4 4h16v12H4z M8 20h8"/></svg></div>Nsukka</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>Port Harcourt</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>Onitsha</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>Aba</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>Ibadan</div>
+        <div class="trust-strip-dot"></div>
+        <!-- Duplicate for seamless loop -->
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>Lagos</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></div>Abuja</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><polygon points="12,2 22,20 2,20"/></svg></div>Enugu</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M4 4h16v12H4z M8 20h8"/></svg></div>Nsukka</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><circle cx="12" cy="7" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>Port Harcourt</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div>Onitsha</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>Aba</div>
+        <div class="trust-strip-dot"></div>
+        <div class="trust-strip-item"><div class="trust-strip-item-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent)"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>Ibadan</div>
+        <div class="trust-strip-dot"></div>
+      </div>
+    </div>
   </div>
-</footer>
 
-<script src="script.js"></script>
+  <!-- ── 4. FLAGSHIP PRODUCTS ── -->
+  <section class="products-section" id="shop">
+    <div class="container">
+      <div class="products-header">
+        <div class="section-label reveal">Our Products</div>
+        <h2 class="section-title reveal reveal-delay-1">Flagship <em>products</em><br>you'll love</h2>
+        <p class="section-sub reveal reveal-delay-2">Premium, hygienically processed indigenous Nigerian foods — from our kitchen to your table. Every pack is made with authentic ingredients and modern standards.</p>
+      </div>
+      <div class="products-grid" id="homeProductsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ── 5. OUR STORY TEASER ── -->
+  <section class="story-section" id="story">
+    <div class="container">
+      <div class="story-inner">
+        <div class="story-content reveal">
+          <div class="story-number">Our Story</div>
+          <h2 class="story-title">Nigeria's culinary heritage,<br><em>preserved with pride.</em></h2>
+          <p class="story-desc">
+            URCH Foods was born from a simple craving: the authentic taste of home. We noticed that the beloved indigenous dishes Okpa, Abacha, Achicha that defined our childhood were becoming harder to find, especially for urban families and the diaspora who missed home.
+          </p>
+          <p class="story-desc">
+            Our mission is to preserve these culinary traditions by making them accessible, hygienic, and convenient — without losing a drop of their soul. Every product we make carries the promise of authenticity, modern processing standards, and the cultural pride of Nsukka and beyond.
+          </p>
+          <a href="#story" class="btn-text-link reveal reveal-delay-1">
+            Read Our Full Story
+            <span class="link-arrow">&rarr;</span>
+          </a>
+        </div>
+        <div class="story-visual reveal reveal-delay-1">
+          <div class="story-visual-placeholder"><img src="images/product-01.jpg" alt="Our Story — Founder Image" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 6. RECIPES HIGHLIGHT ── -->
+  <section class="recipes-section" id="recipes">
+    <div class="container">
+      <div class="recipes-header">
+        <div class="section-label reveal">Recipes</div>
+        <h2 class="section-title reveal reveal-delay-1">Cook <em>inspiration</em><br>into every meal</h2>
+        <p class="section-sub reveal reveal-delay-2">From classic Okpa pudding to refreshing Abacha salads — discover recipes that make cooking indigenous foods easy and joyful.</p>
+      </div>
+      <div class="recipes-grid">
+
+        <div class="recipe-card reveal">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Classic Okpa Pudding" /></div>
+          </div>
+          <div class="recipe-body">
+            <h3 class="recipe-name">Classic Okpa Pudding</h3>
+            <p class="recipe-desc">The timeless Igbo delicacy — rich, savoury, and wrapped in banana leaves. Simple to make with our instant Okpa Flour.</p>
+            <a href="#" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="recipe-card reveal reveal-delay-1">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-02.jpg" alt="Abacha (African Salad)" /></div>
+          </div>
+          <div class="recipe-body">
+            <h3 class="recipe-name">Abacha — African Salad</h3>
+            <p class="recipe-desc">The beloved Igbo salad — colourful, tangy, and full of flavour. Perfect for parties and everyday enjoyment alike.</p>
+            <a href="#" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="recipe-card reveal reveal-delay-2">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-03.jpg" alt="Achicha & Ugba Soup" /></div>
+          </div>
+          <div class="recipe-body">
+            <h3 class="recipe-name">Achicha &amp; Ugba Soup</h3>
+            <p class="recipe-desc">A hearty Nsukka classic — dried cocoyam paired with oil bean seed in a rich, traditional soup. Comfort in a bowl.</p>
+            <a href="#" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="recipe-card reveal reveal-delay-3">
+          <div class="recipe-img">
+            <div class="recipe-img-placeholder"><img src="images/product-01.jpg" alt="Fufu & Egusi Soup" /></div>
+          </div>
+          <div class="recipe-body">
+            <h3 class="recipe-name">Akpu &amp; Egusi Soup</h3>
+            <p class="recipe-desc">Smooth, stretchy fufu paired with rich egusi soup — the ultimate Nigerian comfort food combo. Made easy with our Akpu Flour.</p>
+            <a href="#" class="btn-shop-ingredients">
+              Shop Ingredients
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 7. WHY URCH ── -->
+  <section class="why-section" id="why">
+    <div class="container">
+      <div class="why-header">
+        <div class="section-label reveal">Why URCH Foods</div>
+        <h2 class="section-title reveal reveal-delay-1">Built on <em>trust</em><br>and tradition</h2>
+        <p class="section-sub reveal reveal-delay-2">Every product we create is guided by three pillars: authenticity, hygiene, and cultural pride.</p>
+      </div>
+      <div class="why-grid">
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="why-title">Authentic Ingredients</h3>
+          <p class="why-desc">Sourced directly from trusted Nigerian farms. Real cocoyam, cassava, cowpea — no shortcuts, no substitutes.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="why-title">Hygienically Processed</h3>
+          <p class="why-desc">Modern processing and packaging standards. NAFDAC certified. Clean, safe, and ready for your kitchen.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="why-title">Cultural Pride</h3>
+          <p class="why-desc">Preserving dishes like Okpa, Abacha, and Achicha that risk being forgotten by younger, urbanised generations.</p>
+        </div>
+
+        <div class="why-card reveal">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h3 class="why-title">Premium Quality</h3>
+          <p class="why-desc">Consistent taste, texture, and freshness in every pack. Premium positioning for the modern, quality-conscious household.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h3 class="why-title">Fast Delivery</h3>
+          <p class="why-desc">We deliver across Nigeria and to the diaspora. Your favourite foods, fresh and fast, wherever you are.</p>
+        </div>
+
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="why-title">Customer Satisfaction</h3>
+          <p class="why-desc">Your satisfaction is our priority. Responsive support via WhatsApp, email, and phone. We're here for you.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 8. TESTIMONIALS ── -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <div class="section-label reveal">Customer Stories</div>
+        <h2 class="section-title reveal reveal-delay-1">Families that <em>love</em> URCH Foods</h2>
+        <p class="section-sub reveal reveal-delay-2">Real stories from real customers who've tasted the difference.</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card tall reveal">
+          <div class="testimonial-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <p class="testimonial-quote">"I've been searching for authentic Okpa Flour since I moved to Lagos. URCH Foods is the first brand that tasted exactly like my grandmother's. The quality is unmatched — and knowing it's hygienically processed gives me peace of mind."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">CO</div>
+            <div>
+              <div class="author-name">Chioma Obi</div>
+              <div class="author-role">Loyal Customer · Lagos</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <p class="testimonial-quote">"The Abacha is incredible. My family in the UK couldn't believe the quality. We ordered five packs for our next gathering. URCH Foods is now a staple in our household."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">NE</div>
+            <div>
+              <div class="author-name">Ngozi Eze</div>
+              <div class="author-role">Diaspora Customer · London</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <p class="testimonial-quote">"Finally, someone is making indigenous foods with the respect they deserve. The packaging is beautiful, the product is premium, and the delivery was fast. 10/10."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">AC</div>
+            <div>
+              <div class="author-name">Adaora Chukwu</div>
+              <div class="author-role">Food Blogger · Abuja</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <p class="testimonial-quote">"My kids now ask for Okpa instead of instant noodles. That's how good it is. URCH Foods has brought our culture back to our dinner table."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">FN</div>
+            <div>
+              <div class="author-name">Folake Nwosu</div>
+              <div class="author-role">Mother of 3 · Enugu</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars"><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span></div>
+          <p class="testimonial-quote">"As a restaurant owner, I need consistent quality. URCH Foods delivers every single time. My customers love the Achicha soup, and I love knowing my ingredients are trustworthy."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">KO</div>
+            <div>
+              <div class="author-name">Kelechi Okoro</div>
+              <div class="author-role">Restaurant Owner · Port Harcourt</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 9. FAQ ── -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="faq-inner">
+        <div class="faq-sidebar reveal">
+          <div class="section-label">FAQ</div>
+          <h2 class="section-title">Questions,<br><em>answered</em></h2>
+          <p class="section-sub">Can't find what you're looking for? Reach us on WhatsApp or at hello@urchfoods.com — we reply within 2 hours.</p>
+          <button class="faq-toggle-all" id="faqToggleAll">
+            <span id="faqToggleIcon">+</span> Expand all</button>
+        </div>
+        <div class="faq-list reveal reveal-delay-1" id="faqList">
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              How do I order from URCH Foods?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Simply browse our products, add items to your cart, and proceed to checkout. You can pay via card, bank transfer, or USSD. We deliver across Nigeria and to select diaspora locations.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              What payment methods do you accept?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">We accept all major debit/credit cards, bank transfers, and USSD payments through our secure Paystack and Flutterwave integration. Your payment details are always encrypted and secure.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              How long does delivery take?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Within Lagos and Abuja, delivery typically takes 1-3 business days. For other Nigerian cities, expect 3-5 business days. Diaspora deliveries vary by location — check our Shipping Policy for details.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              Are your products NAFDAC certified?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. All URCH Foods products are NAFDAC certified and processed in compliance with Nigerian food safety standards. Our facility follows strict hygiene protocols to ensure every pack meets the highest quality standards.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              How should I store the products?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Store in a cool, dry place away from direct sunlight. Once opened, transfer to an airtight container and use within the recommended timeframe on the packaging. Our products have a generous shelf life when stored properly.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              Can I return or get a refund for my order?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. If your order arrives damaged or doesn't meet your expectations, contact us within 48 hours of delivery and we'll arrange a replacement or full refund. Your satisfaction is our priority. See our Returns Policy for full details.</div></div>
+          </div>
+          <div class="faq-item">
+            <div class="faq-question" tabindex="0" role="button" aria-expanded="false">
+              Do you offer wholesale or bulk pricing?
+              <div class="faq-icon">+</div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes! We offer competitive wholesale pricing for retailers, restaurants, hotels, and corporate buyers. Visit our Wholesale page or contact us directly for a custom quote and minimum order information.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 10. CTA BANNER ── -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-content">
+          <div class="cta-label">&#10024; Join Our Community</div>
+          <h2 class="cta-title">Taste home again,<br><em>delivered to you.</em></h2>
+          <p class="cta-sub">Join the URCH Foods community for early access to new products, exclusive recipes, and special offers — straight from our kitchen to your inbox.</p>
+          <form class="cta-form" id="newsletterForm">
+            <input type="email" class="cta-input" placeholder="Enter your email address" required />
+            <button type="submit" class="cta-submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 11. FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">urch<span style="color:var(--accent-light)">foods</span></a>
+          <p class="footer-brand-desc">Nigeria's culinary heritage, made convenient without losing its soul. Premium indigenous foods for modern kitchens.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Twitter / X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Shop</div>
+          <div class="footer-links">
+            <a href="shop.html">All Products</a>
+            <a href="shop.html">Okpa Flour</a>
+            <a href="shop.html">Abacha</a>
+            <a href="shop.html">Achicha</a>
+            <a href="shop.html">Palm Oil</a>
+            <a href="shop.html">Gift Bundles</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Company</div>
+          <div class="footer-links">
+            <a href="our-story.html">Our Story</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="distributors.html">Become a Distributor</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Support</div>
+          <div class="footer-links">
+            <a href="faq.html">FAQ</a>
+            <a href="#">Track Order</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 URCH Foods. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Shipping Policy</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="urch-foods.js"></script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
 </body>
 </html>

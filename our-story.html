@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — URCH Foods</title>
+  <meta name="description" content="Discover the story behind URCH Foods — preserving Nigeria's culinary heritage through premium, hygienically processed indigenous foods. Rooted in Nsukka, made for the world." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
+</head>
+<body>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="why-urch.html">Why URCH</a>
+    <a href="faq.html">FAQ</a>
+    <a href="distributors.html">Become a Distributor</a>
+    <a href="shop.html" class="mobile-cta btn-primary">Shop Now</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">urch<span>foods</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="our-story.html" class="active">Our Story</a></li>
+        <li><a href="why-urch.html">Why URCH</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="distributors.html" class="nav-distributor">Become a Distributor</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" class="nav-signin" aria-label="Sign in to your account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <a href="shop.html" class="nav-cart" id="cartIcon" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <div class="cart-count" id="cartCount" style="display:none">0</div>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        Your Cart
+        <span class="cart-drawer-badge" id="cartDrawerBadge">0</span>
+      </div>
+      <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-empty" id="cartDrawerEmpty">
+      <p>Your cart is empty.</p>
+      <a href="shop.html" class="btn-start-shopping">Start Shopping</a>
+    </div>
+
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-drawer-summary">
+        <div class="cart-drawer-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&#8358;0</span>
+        </div>
+        <p class="cart-drawer-note">Shipping &amp; delivery calculated at checkout.</p>
+      </div>
+      <button type="button" class="cart-drawer-checkout" id="cartCheckout" disabled>
+        <span>Checkout</span>
+        <span class="cart-drawer-checkout-total" id="cartCheckoutTotal">&#8358;0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── STORY BANNER ── -->
+  <section class="story-banner">
+    <div class="container">
+      <div class="section-label reveal">Our Story</div>
+      <h1 class="section-title reveal reveal-delay-1">Nigeria's culinary heritage,<br><em>preserved with pride.</em></h1>
+      <p class="section-sub reveal reveal-delay-2">Rooted in Nsukka, made for the world. This is the story behind URCH Foods — and why we believe every kitchen deserves the taste of home.</p>
+    </div>
+  </section>
+
+  <!-- ── FOUNDER STORY ── -->
+  <section class="story-founder">
+    <div class="container">
+      <div class="story-founder-grid">
+        <div class="story-founder-visual reveal">
+          <div class="story-founder-img-placeholder"><img src="images/product-01.jpg" alt="Founder — URCH Foods" /></div>
+          <div class="story-founder-badge">
+            <div class="story-founder-badge-text">Rooted in<br><strong>Nsukka</strong></div>
+          </div>
+        </div>
+        <div class="story-founder-content reveal reveal-delay-1">
+          <div class="story-number">The Beginning</div>
+          <h2 class="story-title">It started with a <em>craving for home.</em></h2>
+          <p class="story-desc">
+            URCH Foods was born from a simple, powerful feeling — the ache of missing the foods that defined our childhood. Growing up in Nsukka, dishes like Okpa, Abacha, and Achicha weren't just meals. They were identity. They were celebration. They were home.
+          </p>
+          <p class="story-desc">
+            But as we moved to Lagos, Abuja, and eventually abroad, we noticed something troubling: the authentic indigenous foods we loved were becoming harder to find. The Okpa sold in markets was inconsistent. The Abacha was processed without care. The Achicha our mothers swore by was nowhere to be found.
+          </p>
+          <p class="story-desc">
+            So we decided to change that. Not with shortcuts or compromises — but by bringing modern processing standards to the ancestral recipes and ingredients that have sustained Igbo families for generations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── MISSION SECTION ── -->
+  <section class="story-mission">
+    <div class="container">
+      <div class="story-mission-header">
+        <div class="section-label reveal">Our Mission</div>
+        <h2 class="section-title reveal reveal-delay-1">Three pillars, <em>one purpose.</em></h2>
+        <p class="section-sub reveal reveal-delay-2">Everything we do at URCH Foods is guided by three core beliefs that shape how we source, process, and deliver our products.</p>
+      </div>
+      <div class="story-mission-grid">
+
+        <div class="story-mission-card reveal">
+          <div class="story-mission-number">01</div>
+          <div class="story-mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <h3 class="story-mission-title">Authenticity</h3>
+          <p class="story-mission-desc">Real recipes, real ingredients, no shortcuts. Every product we make uses traditional methods — cocoyam sourced from trusted Nigerian farms, cassava processed the way it's been done for generations, cowpea cleaned and packaged with respect for its heritage.</p>
+        </div>
+
+        <div class="story-mission-card reveal reveal-delay-1">
+          <div class="story-mission-number">02</div>
+          <div class="story-mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <h3 class="story-mission-title">Hygiene &amp; Modern Standards</h3>
+          <p class="story-mission-desc">Professionally processed and packaged. NAFDAC certified. Clean, safe, and made to meet the expectations of modern, health-conscious Nigerian households and the diaspora. No compromises on safety — ever.</p>
+        </div>
+
+        <div class="story-mission-card reveal reveal-delay-2">
+          <div class="story-mission-number">03</div>
+          <div class="story-mission-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+          </div>
+          <h3 class="story-mission-title">Cultural Pride</h3>
+          <p class="story-mission-desc">Preserving dishes like Okpa, Abacha, and Achicha that are at risk of being forgotten by younger, urbanised generations. We make these traditions accessible to the diaspora who miss home — and introduce them to a new generation of Nigerians.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOURCING & PROCESSING ── -->
+  <section class="story-process">
+    <div class="container">
+      <div class="story-process-header">
+        <div class="section-label reveal">How We Do It</div>
+        <h2 class="section-title reveal reveal-delay-1">From farm to table,<br><em>with integrity.</em></h2>
+        <p class="section-sub reveal reveal-delay-2">We believe you deserve to know exactly how your food is made. Here's our process — transparent, traceable, and rooted in respect for the ingredients.</p>
+      </div>
+      <div class="story-process-steps">
+
+        <div class="story-process-step reveal">
+          <div class="story-process-step-num">1</div>
+          <div class="story-process-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="story-process-step-content">
+            <h3 class="story-process-step-title">Trusted Sourcing</h3>
+            <p class="story-process-step-desc">We source directly from trusted Nigerian farms and cooperatives. Real cocoyam from the Southeast, cassava from local growers, cowpea from verified suppliers — every ingredient traceable to its origin.</p>
+          </div>
+        </div>
+
+        <div class="story-process-step reveal reveal-delay-1">
+          <div class="story-process-step-num">2</div>
+          <div class="story-process-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
+          </div>
+          <div class="story-process-step-content">
+            <h3 class="story-process-step-title">Hygienic Processing</h3>
+            <p class="story-process-step-desc">Modern processing facilities with strict hygiene protocols. Every batch is cleaned, processed, and packaged to NAFDAC standards. No open-air drying, no uncertain handling — just clean, professional production.</p>
+          </div>
+        </div>
+
+        <div class="story-process-step reveal reveal-delay-2">
+          <div class="story-process-step-num">3</div>
+          <div class="story-process-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div class="story-process-step-content">
+            <h3 class="story-process-step-title">Premium Packaging</h3>
+            <p class="story-process-step-desc">Sealed, labelled, and designed for freshness. Our packaging preserves the authentic taste and texture of each product while looking beautiful on your shelf — because traditional food deserves modern presentation.</p>
+          </div>
+        </div>
+
+        <div class="story-process-step reveal reveal-delay-3">
+          <div class="story-process-step-num">4</div>
+          <div class="story-process-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div class="story-process-step-content">
+            <h3 class="story-process-step-title">Fast Delivery</h3>
+            <p class="story-process-step-desc">From our facility to your doorstep. We deliver across Nigeria — Lagos, Abuja, Enugu, Port Harcourt, and beyond — and to select diaspora locations. Your favourite foods, fresh and fast, wherever you are.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VALUES / WHY URCH ── -->
+  <section class="story-values">
+    <div class="container">
+      <div class="story-values-header">
+        <div class="section-label reveal">What Drives Us</div>
+        <h2 class="section-title reveal reveal-delay-1">Built on <em>trust</em><br>and tradition</h2>
+      </div>
+      <div class="story-values-grid">
+
+        <div class="story-value-card reveal">
+          <div class="story-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="story-value-title">Preserving Heritage</h3>
+          <p class="story-value-desc">Every product we make carries the culinary traditions of Nsukka and the Igbo heartland. We're not just selling food — we're preserving a way of life for future generations.</p>
+        </div>
+
+        <div class="story-value-card reveal reveal-delay-1">
+          <div class="story-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <h3 class="story-value-title">Community First</h3>
+          <p class="story-value-desc">From the farmers we source from to the families who eat our food — everything we do puts people first. We're building a brand that our community can be proud of.</p>
+        </div>
+
+        <div class="story-value-card reveal reveal-delay-2">
+          <div class="story-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <h3 class="story-value-title">Quality Without Compromise</h3>
+          <p class="story-value-desc">Consistent taste, texture, and freshness in every pack. We set the standard for what premium indigenous food should look, taste, and feel like.</p>
+        </div>
+
+        <div class="story-value-card reveal">
+          <div class="story-value-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3 class="story-value-title">Serving the Diaspora</h3>
+          <p class="story-value-desc">We know what it's like to miss home. That's why we've made it our mission to deliver the authentic taste of Nigeria to Igbo families worldwide — from London to Houston to Johannesburg.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA SECTION ── -->
+  <section class="story-cta">
+    <div class="container">
+      <div class="story-cta-inner reveal">
+        <div class="story-cta-content">
+          <div class="section-label">&#10024; Taste the Difference</div>
+          <h2 class="cta-title">Ready to experience<br><em>authentic indigenous food?</em></h2>
+          <p class="cta-sub">Browse our full range of premium products — from flagship Okpa Flour to traditional Palm Oil. Made with care, delivered to your door.</p>
+        </div>
+        <div class="story-cta-actions">
+          <a href="shop.html" class="btn-cta-primary">
+            Shop Our Products
+            <span>&rarr;</span>
+          </a>
+          <a href="recipes.html" class="btn-cta-ghost">
+            Explore Recipes
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">urch<span style="color:var(--accent-light)">foods</span></a>
+          <p class="footer-brand-desc">Nigeria's culinary heritage, made convenient without losing its soul. Premium indigenous foods for modern kitchens.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="TikTok">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="Twitter / X">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="social-btn" aria-label="WhatsApp">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Shop</div>
+          <div class="footer-links">
+            <a href="shop.html">All Products</a>
+            <a href="shop.html">Okpa Flour</a>
+            <a href="shop.html">Abacha</a>
+            <a href="shop.html">Achicha</a>
+            <a href="shop.html">Palm Oil</a>
+            <a href="shop.html">Gift Bundles</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Company</div>
+          <div class="footer-links">
+            <a href="our-story.html">Our Story</a>
+            <a href="recipes.html">Recipes</a>
+            <a href="#">Blog</a>
+            <a href="#">Wholesale</a>
+            <a href="distributors.html">Become a Distributor</a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-label">Support</div>
+          <div class="footer-links">
+            <a href="faq.html">FAQ</a>
+            <a href="#">Track Order</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Shipping Policy</a>
+            <a href="#">Returns Policy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 URCH Foods. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Shipping Policy</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="urch-foods.js"></script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

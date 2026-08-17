@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Account — URCH Foods</title>
+  <meta name="description" content="Manage your URCH Foods account — track orders, saved items, recipes, and rewards." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
+</head>
+<body>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="why-urch.html">Why URCH</a>
+    <a href="faq.html">FAQ</a>
+    <a href="distributors.html">Become a Distributor</a>
+    <a href="shop.html" class="mobile-cta btn-primary">Shop Now</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">urch<span>foods</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="why-urch.html">Why URCH</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="distributors.html" class="nav-distributor">Become a Distributor</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="account.html" class="nav-signin" aria-label="My account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          My Account
+        </a>
+        <a href="shop.html" class="nav-cart" id="cartIcon" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <div class="cart-count" id="cartCount" style="display:none">0</div>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        Your Cart
+        <span class="cart-drawer-badge" id="cartDrawerBadge">0</span>
+      </div>
+      <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-empty" id="cartDrawerEmpty">
+      <p>Your cart is empty.</p>
+      <a href="shop.html" class="btn-start-shopping">Start Shopping</a>
+    </div>
+
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-drawer-summary">
+        <div class="cart-drawer-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&#8358;0</span>
+        </div>
+        <p class="cart-drawer-note">Shipping &amp; delivery calculated at checkout.</p>
+      </div>
+      <button type="button" class="cart-drawer-checkout" id="cartCheckout" disabled>
+        <span>Checkout</span>
+        <span class="cart-drawer-checkout-total" id="cartCheckoutTotal">&#8358;0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── MY ACCOUNT ── -->
+  <section class="account-section">
+    <div class="container">
+
+      <div class="account-layout" id="accountMain">
+        <aside class="account-sidebar">
+          <div class="account-user">
+            <div class="account-avatar" id="accountAvatar">U</div>
+            <div class="account-user-text">
+              <div class="account-user-name" id="accountUserName">Customer</div>
+              <div class="account-user-email" id="accountUserEmail">—</div>
+            </div>
+          </div>
+          <nav class="account-menu" aria-label="Account menu">
+            <button type="button" class="account-menu-item active" data-panel="overview">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+              Overview
+            </button>
+            <button type="button" class="account-menu-item" data-panel="orders">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              My Orders
+            </button>
+            <button type="button" class="account-menu-item" data-panel="profile">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              Profile &amp; Password
+            </button>
+            <button type="button" class="account-menu-item" data-panel="saved">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+              Saved Items
+            </button>
+            <button type="button" class="account-menu-item" data-panel="coupons">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><circle cx="7" cy="7" r="1.5" fill="currentColor" stroke="none"/></svg>
+              Coupons &amp; Rewards
+            </button>
+          </nav>
+          <button type="button" class="account-signout" id="accountSignOut">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+            Sign out
+          </button>
+        </aside>
+
+        <main class="account-content">
+
+          <!-- OVERVIEW -->
+          <div class="account-panel active" id="panel-overview">
+            <div class="account-panel-head">
+              <h2 class="account-panel-title">Welcome back, <em id="overviewName">there</em></h2>
+              <p class="account-panel-sub">Here's what's happening with your URCH Foods account.</p>
+            </div>
+            <div class="account-stats" id="overviewStats"></div>
+            <div class="account-two-col">
+              <div class="account-card" id="latestOrder"></div>
+              <div class="account-card">
+                <h3 class="account-card-title">Quick links</h3>
+                <ul class="account-quicklinks">
+                  <li><a href="shop.html">Shop products</a></li>
+                  <li><a href="recipes.html">Browse recipes</a></li>
+                  <li><a href="review.html">Leave a product review</a></li>
+                  <li><a href="#" onclick="return false;">Track an order</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- ORDERS -->
+          <div class="account-panel" id="panel-orders">
+            <div class="account-panel-head">
+              <h2 class="account-panel-title">My <em>Orders</em></h2>
+              <p class="account-panel-sub">Track and review everything you've ordered.</p>
+            </div>
+            <div class="account-orders" id="ordersList"></div>
+          </div>
+
+          <!-- PROFILE -->
+          <div class="account-panel" id="panel-profile">
+            <div class="account-panel-head">
+              <h2 class="account-panel-title">Profile &amp; <em>Password</em></h2>
+              <p class="account-panel-sub">Update your personal details and secure your account.</p>
+            </div>
+            <div class="account-card" style="margin-bottom:24px;">
+              <h3 class="account-card-title">Personal details</h3>
+              <div class="account-photo-upload">
+                <div class="account-photo-preview" id="profileAvatarPreview">U</div>
+                <div class="account-photo-actions">
+                  <div class="account-photo-hint">Add a profile picture so we know your face. JPG or PNG, max 2 MB.</div>
+                  <div class="account-photo-btns">
+                    <button type="button" class="account-photo-btn" id="profilePhotoBtn">Upload photo</button>
+                    <button type="button" class="account-photo-btn account-photo-btn-ghost" id="profilePhotoRemove" hidden>Remove</button>
+                  </div>
+                  <input type="file" id="profilePhotoInput" accept="image/*" hidden />
+                </div>
+              </div>
+              <form class="auth-form" id="profileForm">
+                <div class="auth-field">
+                  <label for="profileName">Full name</label>
+                  <input type="text" id="profileName" placeholder="Your name" autocomplete="name" />
+                </div>
+                <div class="auth-field">
+                  <label for="profileEmail">Email address</label>
+                  <input type="email" id="profileEmail" placeholder="you@example.com" autocomplete="email" />
+                </div>
+                <div class="auth-field">
+                  <label for="profilePhone">Phone / WhatsApp</label>
+                  <input type="tel" id="profilePhone" placeholder="+234 ..." autocomplete="tel" />
+                </div>
+                <button type="submit" class="auth-submit">Save changes</button>
+              </form>
+            </div>
+            <div class="account-card">
+              <h3 class="account-card-title">Change password</h3>
+              <form class="auth-form" id="passwordForm">
+                <div class="auth-field">
+                  <label for="newPassword">New password</label>
+                  <input type="password" id="newPassword" placeholder="At least 6 characters" autocomplete="new-password" />
+                </div>
+                <div class="auth-field">
+                  <label for="confirmPassword">Confirm password</label>
+                  <input type="password" id="confirmPassword" placeholder="Repeat your password" autocomplete="new-password" />
+                </div>
+                <button type="submit" class="auth-submit">Update password</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- SAVED ITEMS -->
+          <div class="account-panel" id="panel-saved">
+            <div class="account-panel-head">
+              <h2 class="account-panel-title">Saved <em>Items</em></h2>
+              <p class="account-panel-sub">Products you've saved — tap the heart on any product to add or remove.</p>
+            </div>
+            <div class="products-grid account-saved-grid" id="savedList"></div>
+          </div>
+
+          <!-- COUPONS -->
+          <div class="account-panel" id="panel-coupons">
+            <div class="account-panel-head">
+              <h2 class="account-panel-title">Coupons &amp; <em>Rewards</em></h2>
+              <p class="account-panel-sub">Discounts and rewards for our valued community.</p>
+            </div>
+            <div class="coupon-grid">
+              <div class="coupon-card">
+                <div class="coupon-code">WELCOME10</div>
+                <div class="coupon-name">10% off your first order</div>
+                <div class="coupon-note">Applies to your first order over &#8358;5,000. One use.</div>
+              </div>
+              <div class="coupon-card">
+                <div class="coupon-code">FREESHIP</div>
+                <div class="coupon-name">Free delivery over &#8358;20,000</div>
+                <div class="coupon-note">Free shipping on orders above &#8358;20,000 within Nigeria.</div>
+              </div>
+            </div>
+            <div class="account-card referral-card">
+              <h3 class="account-card-title">Refer &amp; earn</h3>
+              <p class="referral-text">Share your code — when a friend makes their first order, you both get <strong>&#8358;500 off</strong>.</p>
+              <div class="referral-row">
+                <div class="coupon-code" id="referralCode">URCH10</div>
+                <button type="button" class="auth-submit" id="copyReferral" style="padding:12px 22px;">Copy code</button>
+              </div>
+            </div>
+          </div>
+
+        </main>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 URCH Foods. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="faq.html">FAQ</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="urch-foods.js"></script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

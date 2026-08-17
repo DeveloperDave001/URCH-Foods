@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Review — URCH Foods</title>
+  <meta name="description" content="Tell us what you think of your URCH Foods order — your honest feedback helps us improve our products, packaging and service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="urch-foods.css" />
+</head>
+<body>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Navigation">
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="recipes.html">Recipes</a>
+    <a href="our-story.html">Our Story</a>
+    <a href="why-urch.html">Why URCH</a>
+    <a href="faq.html">FAQ</a>
+    <a href="distributors.html">Become a Distributor</a>
+    <a href="shop.html" class="mobile-cta btn-primary">Shop Now</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="mainNav" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">urch<span>foods</span></a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="recipes.html">Recipes</a></li>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="why-urch.html">Why URCH</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="distributors.html" class="nav-distributor">Become a Distributor</a></li>
+      </ul>
+      <div class="nav-right">
+        <a href="login.html" class="nav-signin" aria-label="Sign in to your account">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Sign in
+        </a>
+        <a href="shop.html" class="nav-cart" id="cartIcon" aria-label="Shopping cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
+          </svg>
+          <div class="cart-count" id="cartCount" style="display:none">0</div>
+        </a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ── CART DRAWER ── -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+    <div class="cart-drawer-header">
+      <div class="cart-drawer-title">
+        Your Cart
+        <span class="cart-drawer-badge" id="cartDrawerBadge">0</span>
+      </div>
+      <button type="button" class="cart-drawer-close" id="cartDrawerClose" aria-label="Close cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+
+    <div class="cart-drawer-empty" id="cartDrawerEmpty">
+      <p>Your cart is empty.</p>
+      <a href="shop.html" class="btn-start-shopping">Start Shopping</a>
+    </div>
+
+    <div class="cart-drawer-items" id="cartDrawerItems"></div>
+
+    <div class="cart-drawer-footer" id="cartDrawerFooter">
+      <div class="cart-drawer-summary">
+        <div class="cart-drawer-total-row">
+          <span>Subtotal</span>
+          <span id="cartSubtotal">&#8358;0</span>
+        </div>
+        <p class="cart-drawer-note">Shipping &amp; delivery calculated at checkout.</p>
+      </div>
+      <button type="button" class="cart-drawer-checkout" id="cartCheckout" disabled>
+        <span>Checkout</span>
+        <span class="cart-drawer-checkout-total" id="cartCheckoutTotal">&#8358;0</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── REVIEW BANNER ── -->
+  <section class="review-banner">
+    <div class="container">
+      <div class="section-label reveal">Product Review</div>
+      <h1 class="section-title reveal reveal-delay-1">How was your <em>URCH Foods</em> order?</h1>
+      <p class="section-sub reveal reveal-delay-2">We read every review. Your honest feedback helps us improve our products, packaging and service — and shape what we make next.</p>
+    </div>
+  </section>
+
+  <!-- ── REVIEW FORM ── -->
+  <section class="review-section review-section-alt">
+    <div class="container">
+      <div class="review-wrap">
+
+        <div class="review-card reveal">
+          <div class="review-form-head">
+            <h2>Tell us what you think</h2>
+            <p>It only takes a minute — there are no right or wrong answers.</p>
+          </div>
+
+          <form class="review-form" id="reviewForm" novalidate>
+            <div class="review-form-grid">
+
+              <div class="review-field span-2">
+                <label for="revProduct">Which product did you buy? <em>*</em></label>
+                <select id="revProduct" name="product" required>
+                  <option value="" disabled selected>Select a product</option>
+                </select>
+                <div class="review-field" id="revOtherWrap" hidden>
+                  <input type="text" id="revOther" name="otherProduct" placeholder="Type the product name" />
+                </div>
+              </div>
+
+              <div class="review-field span-2">
+                <label>How would you rate it? <em>*</em></label>
+                <div class="review-stars" id="revStars" role="radiogroup" aria-label="Star rating">
+                  <button type="button" class="review-star" data-value="1" aria-label="1 star">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  </button>
+                  <button type="button" class="review-star" data-value="2" aria-label="2 stars">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  </button>
+                  <button type="button" class="review-star" data-value="3" aria-label="3 stars">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  </button>
+                  <button type="button" class="review-star" data-value="4" aria-label="4 stars">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  </button>
+                  <button type="button" class="review-star" data-value="5" aria-label="5 stars">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="review-field span-2">
+                <label for="revComplaint">Do you have any complaints?</label>
+                <textarea id="revComplaint" name="complaint" rows="3" placeholder="Quality, packaging, delivery, taste... tell us honestly."></textarea>
+              </div>
+
+              <div class="review-field span-2">
+                <label for="revChange">Is there anything you&rsquo;d like us to change?</label>
+                <textarea id="revChange" name="change" rows="3" placeholder="Flavour, texture, pack size, delivery time..."></textarea>
+              </div>
+
+              <div class="review-field">
+                <label for="revName">Your name</label>
+                <input type="text" id="revName" name="name" placeholder="e.g. Adaeze Nwosu" autocomplete="name" />
+              </div>
+              <div class="review-field">
+                <label for="revPhone">Phone / WhatsApp</label>
+                <input type="tel" id="revPhone" name="phone" placeholder="e.g. 0801 234 5678" autocomplete="tel" />
+              </div>
+              <div class="review-field span-2">
+                <label for="revEmail">Email address</label>
+                <input type="email" id="revEmail" name="email" placeholder="you@example.com" autocomplete="email" />
+              </div>
+              <div class="review-field span-2">
+                <label for="revOrder">Order reference <span>(if you have one)</span></label>
+                <input type="text" id="revOrder" name="order" placeholder="e.g. URCH-1105" />
+              </div>
+
+            </div>
+
+            <p class="review-error" id="revError" hidden></p>
+
+            <button type="submit" class="review-submit" id="revSubmit">Submit Review</button>
+          </form>
+
+          <div class="review-success" id="revSuccess" hidden>
+            <div class="review-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2>Thank you for your feedback!</h2>
+            <p>Your review has been sent to our team. It helps us improve our products and service.</p>
+            <div class="review-success-actions">
+              <a href="shop.html" class="btn-primary-lg">Continue Shopping <span class="btn-arrow">&rarr;</span></a>
+              <button type="button" class="btn-outline-lg" id="revWhatsAppShare">Share on WhatsApp</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div class="footer-copy">
+          &copy; 2026 URCH Foods. All rights reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="faq.html">FAQ</a>
+          <a href="admin.html">Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="urch-foods.js"></script>
+
+  <script>
+    /* ── Product Review Form ── */
+    (function () {
+      var REVIEWS_KEY = "urch_reviews";
+      var REMINDERS_KEY = "urch_review_reminders";
+
+      var form = document.getElementById("reviewForm");
+      var submitBtn = document.getElementById("revSubmit");
+      var errorEl = document.getElementById("revError");
+      var successEl = document.getElementById("revSuccess");
+      var starsEl = document.getElementById("revStars");
+      var rating = 0;
+
+      function getValue(id) {
+        var el = document.getElementById(id);
+        return el ? el.value.trim() : "";
+      }
+
+      function readJSON(key, fallback) {
+        try {
+          var raw = localStorage.getItem(key);
+          var val = raw ? JSON.parse(raw) : null;
+          return val == null ? fallback : val;
+        } catch (err) {
+          return fallback;
+        }
+      }
+
+      function getReviews() {
+        var list = readJSON(REVIEWS_KEY, []);
+        return Array.isArray(list) ? list : [];
+      }
+
+      function saveReviews(list) {
+        try {
+          localStorage.setItem(REVIEWS_KEY, JSON.stringify(list));
+          return true;
+        } catch (err) {
+          showError("Could not save your review. Please try again.");
+          return false;
+        }
+      }
+
+      function markReminderReviewed(orderId) {
+        var reminders = readJSON(REMINDERS_KEY, []);
+        if (!Array.isArray(reminders)) return;
+        var changed = false;
+        reminders.forEach(function (r) {
+          if (r && r.orderId === orderId && !r.reviewed) {
+            r.reviewed = true;
+            changed = true;
+          }
+        });
+        if (changed) {
+          try {
+            localStorage.setItem(REMINDERS_KEY, JSON.stringify(reminders));
+          } catch (err) {}
+        }
+      }
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;");
+      }
+
+      /* Populate product select from the catalog (seeded by urch-foods.js) */
+      var productSelect = document.getElementById("revProduct");
+      var otherWrap = document.getElementById("revOtherWrap");
+      var catalog = readJSON("urch_products", null);
+      var productNames = catalog && Array.isArray(catalog)
+        ? catalog.map(function (p) { return p.name || p.productName || ""; }).filter(Boolean)
+        : [];
+      if (!productNames.length) {
+        productNames = [
+          "Okpa Flour", "Abacha (African Salad)", "Achicha", "Akpu Flour (Fufu Flour)",
+          "Agbugbu (Fio-Fio)", "Akidi Oji", "Palm Oil", "Okp\u00e9ye Nsukka"
+        ];
+      }
+      var query = new URLSearchParams(window.location.search);
+      var prefillProduct = query.get("product");
+      productNames.forEach(function (name) {
+        var opt = document.createElement("option");
+        opt.value = name;
+        opt.textContent = name;
+        productSelect.appendChild(opt);
+      });
+      var otherOpt = document.createElement("option");
+      otherOpt.value = "__other";
+      otherOpt.textContent = "Something else...";
+      productSelect.appendChild(otherOpt);
+
+      productSelect.addEventListener("change", function () {
+        otherWrap.hidden = productSelect.value !== "__other";
+      });
+
+      /* Prefill from URL params */
+      var orderEl = document.getElementById("revOrder");
+      if (prefillProduct && prefillProduct !== "__other") productSelect.value = prefillProduct;
+      if (query.get("order")) orderEl.value = query.get("order");
+
+      /* Star rating */
+      var starButtons = starsEl.querySelectorAll(".review-star");
+      function setRating(val) {
+        rating = val;
+        starButtons.forEach(function (btn) {
+          var active = Number(btn.getAttribute("data-value")) <= val;
+          btn.classList.toggle("active", active);
+        });
+        starsEl.setAttribute("aria-valuenow", String(val));
+      }
+      starButtons.forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          setRating(Number(btn.getAttribute("data-value")));
+        });
+      });
+
+      function showError(msg) {
+        if (!errorEl) return;
+        errorEl.textContent = msg;
+        errorEl.hidden = false;
+      }
+      function clearError() {
+        if (errorEl) errorEl.hidden = true;
+      }
+
+      function shareOnWhatsApp(record) {
+        var lines = [
+          "Hello URCH Foods! I'd like to share my review:",
+          "",
+          "\u2022 Product: " + record.product,
+          "\u2022 Rating: " + record.rating + "/5",
+          record.complaint ? "\u2022 Complaint: " + record.complaint : "",
+          record.change ? "\u2022 Change I'd like: " + record.change : "",
+          record.order ? "\u2022 Order: " + record.order : ""
+        ].filter(Boolean);
+        var number = "2348012345678";
+        window.open("https://wa.me/" + number + "?text=" + encodeURIComponent(lines.join("\n")), "_blank");
+      }
+
+      if (form) {
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          clearError();
+
+          var product = getValue("revProduct");
+          var other = getValue("revOther");
+          var complaint = getValue("revComplaint");
+          var change = getValue("revChange");
+          var order = getValue("revOrder");
+
+          if (!product) return showError("Please select the product you bought.");
+          if (product === "__other" && !other) return showError("Please type the product name.");
+          if (rating === 0) return showError("Please tap the stars to rate the product.");
+
+          if (submitBtn) {
+            submitBtn.classList.add("loading");
+            submitBtn.textContent = "Submitting\u2026";
+          }
+
+          var record = {
+            id: "r_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
+            ts: Date.now(),
+            status: "New",
+            order: order,
+            product: product === "__other" ? other : product,
+            rating: rating,
+            complaint: complaint,
+            change: change,
+            name: getValue("revName"),
+            phone: getValue("revPhone"),
+            email: getValue("revEmail")
+          };
+
+          var list = getReviews();
+          list.unshift(record);
+          if (!saveReviews(list)) {
+            if (submitBtn) {
+              submitBtn.classList.remove("loading");
+              submitBtn.textContent = "Submit Review";
+            }
+            return;
+          }
+
+          if (order) markReminderReviewed(order);
+          form.style.display = "none";
+          successEl.hidden = false;
+          successEl.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          document.getElementById("revWhatsAppShare").addEventListener("click", function () {
+            shareOnWhatsApp(record);
+          });
+        });
+      }
+    })();
+  </script>
+
+  <!-- ── FLOATING WHATSAPP ── -->
+  <a href="https://wa.me/2348012345678" class="whatsapp-float" id="whatsappFloat" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>
