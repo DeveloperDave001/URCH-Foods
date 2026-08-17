@@ -1,0 +1,25 @@
+# Large images — compress or use a CDN before committing
+# (prevents accidental commits of uncompressed originals)
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+
+# Documents (keep in cloud storage, not git)
+*.docx
+*.doc
+*.pdf
+*.xlsx
+*.pptx
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
