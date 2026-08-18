@@ -180,26 +180,6 @@
 
   var DEFAULT_PRODUCTS = [
     {
-      id: "okpa",
-      name: "Okpa Flour",
-      price: 2500,
-      unit: "pack",
-      categories: ["flagship", "flour"],
-      tag: "Flagship",
-      desc: "Premium instant Okpa mix — the beloved Igbo delicacy made easy. Rich, authentic flavour with every bite.",
-      img: "images/Products/OkpaFlower.png",
-    },
-    {
-      id: "abacha",
-      name: "Abacha (African Salad)",
-      price: 2000,
-      unit: "pack",
-      categories: ["flagship", "traditional"],
-      tag: "Flagship",
-      desc: "Authentic dried shredded cassava for the classic African Salad. Premium quality, clean, and ready to prepare.",
-      img: "images/product-02.jpg",
-    },
-    {
       id: "achicha",
       name: "Achicha",
       price: 1800,
@@ -208,16 +188,6 @@
       tag: "Flagship",
       desc: "Traditional dried cocoyam — a cherished staple from Nsukka. Perfectly processed to preserve authentic taste.",
       img: "images/Products/Achicha.png",
-    },
-    {
-      id: "akpu",
-      name: "Akpu Flour (Fufu Flour)",
-      price: 2200,
-      unit: "pack",
-      categories: ["flour"],
-      tag: "",
-      desc: "Smooth, stretchy instant fufu flour — perfect for pairing with Egusi, Oha, or any soup of your choice.",
-      img: "images/product-01.jpg",
     },
     {
       id: "agbugbu",
@@ -240,24 +210,14 @@
       img: "images/Products/AkidiOji.png",
     },
     {
-      id: "palm-oil",
-      name: "Palm Oil",
-      price: 3000,
-      unit: "bottle",
-      categories: ["essentials"],
-      tag: "",
-      desc: "Pure, unrefined Nigerian palm oil — rich in flavour and colour. The essential base for every traditional dish.",
-      img: "images/product-01.jpg",
-    },
-    {
-      id: "okpeye",
-      name: "Okp\u00e9ye Nsukka",
-      price: 1200,
+      id: "okpa",
+      name: "Okpa Flour",
+      price: 2500,
       unit: "pack",
-      categories: ["essentials", "traditional"],
-      tag: "",
-      desc: "Authentic Nsukka seasoning — the secret behind the rich, earthy depth of traditional Igbo soups and stews.",
-      img: "images/product-02.jpg",
+      categories: ["flagship", "flour"],
+      tag: "Flagship",
+      desc: "Premium instant Okpa mix — the beloved Igbo delicacy made easy. Rich, authentic flavour with every bite.",
+      img: "images/Products/OkpaFlower.png",
     },
   ];
 
@@ -1165,8 +1125,8 @@
       id: "URCH-1098",
       date: "Aug 2, 2026",
       items: [
-        { name: "Abacha (African Salad)", qty: 2, price: 2000 },
-        { name: "Okpeye Nsukka", qty: 1, price: 1200 }
+        { name: "Achicha", qty: 2, price: 1800 },
+        { name: "Agbugbu (Fio-Fio)", qty: 1, price: 1600 }
       ],
       total: 5200,
       status: "Dispatched",
@@ -1183,9 +1143,9 @@
       items: [
         { name: "Okpa Flour", qty: 2, price: 2500 },
         { name: "Achicha", qty: 1, price: 1800 },
-        { name: "Palm Oil", qty: 1, price: 3000 }
+        { name: "Akidi Oji", qty: 1, price: 1500 }
       ],
-      total: 9800,
+      total: 8300,
       status: "Delivered",
       timeline: [
         { label: "Order Placed", date: "Jul 19, 2026", done: true },
